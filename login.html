@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavender Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <!-- 🍰 Cupcake Image -->
+      <img src="images/cupcake.png" alt="Cupcake" class="cupcake-img" />
+
+      <!-- 👋 Welcome Heading -->
+      <h1 class="welcome">Hi, Welcome Back! 👋</h1>
+
+      <!-- 🔐 Login Form -->
+      <form
+        class="login-form"
+        onsubmit="event.preventDefault(); window.location.href='user-info.html';"
+      >
+        <label for="email" class="field-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <div class="password-wrapper">
+          <label for="password" class="field-label">Password</label>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+            <img
+              src="images/eye.png"
+              id="eye-icon"
+              class="eye-icon"
+              alt="Toggle visibility"
+            />
+          </div>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <p class="signup-text">
+        Don’t have an account? <a href="signup.html">Sign Up</a>
+      </p>
+    </div>
+
+    <!-- 👁️ Eye Icon Toggle Script -->
+    <script>
+      const eyeIcon = document.getElementById("eye-icon");
+      const passwordInput = document.getElementById("password");
+
+      eyeIcon.addEventListener("click", () => {
+        const isHidden = passwordInput.type === "password";
+        passwordInput.type = isHidden ? "text" : "password";
+        eyeIcon.src = isHidden ? "images/eye-closed.png" : "images/eye.png";
+      });
+    </script>
+  </body>
+</html>

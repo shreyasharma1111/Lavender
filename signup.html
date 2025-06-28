@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavender Signup</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <div class="signup-container">
+      <!-- 🍰 Cupcake Image -->
+      <img src="images/cupcake.png" alt="Cupcake" class="cupcake-img" />
+
+      <!-- 💜 Heading -->
+      <h1 class="welcome">Create an Account!</h1>
+
+      <!-- ✍️ Signup Form -->
+      <form
+        class="signup-form"
+        onsubmit="event.preventDefault(); alert('Signup successful!');window.location.href='user-info.html';"
+      >
+        <label for="name" class="field-label">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+          required
+        />
+
+        <label for="email" class="field-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="phone" class="field-label">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="e.g. 9876543210"
+          pattern="[0-9]{10}"
+          required
+        />
+
+        <div class="password-wrapper">
+          <label for="password" class="field-label">Password</label>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="password"
+              placeholder="Create a password"
+              required
+            />
+            <img
+              src="images/eye.png"
+              id="eye-icon"
+              class="eye-icon"
+              alt="Toggle visibility"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+      <p class="login-text">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+    </div>
+
+    <!-- 👁️ Eye Toggle JS -->
+    <script>
+      const eyeIcon = document.getElementById("eye-icon");
+      const passwordInput = document.getElementById("password");
+
+      eyeIcon.addEventListener("click", () => {
+        const isHidden = passwordInput.type === "password";
+        passwordInput.type = isHidden ? "text" : "password";
+        eyeIcon.src = isHidden ? "images/eye-closed.png" : "images/eye.png";
+      });
+    </script>
+  </body>
+</html>
